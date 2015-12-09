@@ -1,14 +1,13 @@
-# image: kradalby/python
-image: evonove/ci
-
-git:
-  path: github.com/kradalby/sourcelib
-
-script:
-    - pip install tox
-    - tox
+build:
+    image: kradalby/ci-tox:latest
+    pull: true
+    commands:
+      - tox
 
 notify:
   email:
+    from: drone@fap.no
+    host: smtp.stud.ntnu.no
+    port: 25
     recipients:
       - kradalby@kradalby.no
